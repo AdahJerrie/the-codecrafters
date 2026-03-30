@@ -5,9 +5,9 @@ This is a CLI text editor tool
 3. The final edited output is displayed.
    
    Transformations available
-1. Upper: Convert the whole input text to Uppercase
-2. caps
-3. lowercase
-4. Tilecase
-5. snakecase
-   etc.
+   1. Upper: Convert the whole input text to Uppercase
+   2. caps
+   3. lowercase
+   4. Tilecase
+   5. snakecase
+      etc.
