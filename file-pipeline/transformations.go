@@ -2,42 +2,72 @@
 transformations - i. caps(title case)
 				  ii. All lowercase(to lower all uppercase)
 				  iii. lines starting with todo: replace the todo with ACTION
-				  iv.Dashes/blanks(reove such lines)
+				  iv.Dashes/blanks(remove such lines)
 				  v. flag any line longer than 80 words with truncated
 */
 
 package main
 
 import (
-	"fmt"
 	"slices"
 	"strings"
 )
 
 func Cap(text string) string {
+
 	connectors := []string{"an", "to", "the", "and", "but", "for", "or", "at", "to", "by", "on", "in", "of", "as", "is", "it"}
 	//field := strings.ToLower(text)
 	fields := strings.Fields(text)
 
 	for i, val := range fields {
-		if fields[len(fields)-1] == "(cap)" {
+		last := len(fields) - 1
+		if fields[last] == "(cap)" {
 			myFlag := slices.Contains(connectors, val)
 			if myFlag == false {
 				fields[i] = strings.ToUpper(string(fields[i][0])) + strings.ToLower(fields[i][1:])
-				fields = append(fields[0:len(fields)-1], fields[len(fields)-1+1:]...)
-				i--
 			}
 		}
 
 	}
+	fields[len(fields)-1] = ""
 	return strings.Join(fields, " ")
 }
 
-// func Upper(text string) string {
-// 	word
-// }
+func Tolower(text string) string {
+	fields := strings.Fields(text)
+	last := len(fields) - 1
 
-func main() {
-	word := "everybody is running to win (cap)"
-	fmt.Println(Cap(word))
+	for i := range fields {
+
+		if fields[last] == "(low)" {
+			fields[i] = strings.ToLower(fields[i])
+		}
+
+	}
+	fields[last] = ""
+	return strings.Join(fields, " ")
 }
+
+func Todo(text string) string {
+	fields := strings.Fields(text)
+
+	for i := range fields {
+		if fields[i] == "TODO:" {
+			fields[i] = "ACTION:"
+		}
+	}
+	return strings.Join(fields, " ")
+}
+
+func Dashes(text string) (string, bool) {
+	clean := strings.TrimSpace(text)
+	if clean == " " || strings.Trim(clean, "-") == "" {
+		return "", true
+	}
+	return text, false
+}
+
+// func main() {
+// 	word := " "
+// 	fmt.Println(Dashes(word))
+// }
