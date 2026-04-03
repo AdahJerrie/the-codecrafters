@@ -1,4 +1,20 @@
 1. every living thing is a survivor from the calamity of the sentinnel attack (cap)
 2. A SEVERE ATTACK ON THE COMMUNICATION SERVER CAN BE PREVENTED (low)
------------------------------------------------
+3. The assignment has been hijacked and plans have to change with immediate effect (Reverse)
 4. TODO: Let the troop begin to move in no time
+5. every silent witness became a guardian after the midnight breach (cap)
+6. A CRITICAL FAILURE IN THE MAINFRAME SYSTEM MUST BE RESOLVED (low)
+7. TODO: The briefing was intercepted and directives must shift immediately
+8. Every system must adapt quickly when unexpected disruptions appear suddenly and disappear unnoticed
+9. every hidden agent adapts quickly after exposure to hostile zones (cap)
+10. A MASSIVE BREACH IN THE DEFENSE GRID COULD BE CONTAINED (low)
+11. The protocol has been altered and responses need revision now (Reverse)
+12. TODO: Prepare the convoy to depart at first signal received
+13. every coded message reveals secrets when decoded with precision tools (cap)
+14. TODO AN URGENT ALERT FROM THE CENTRAL HUB REQUIRES ATTENTION and paying keen attention in such moments are very critical to the development of such facility.
+15. The route has been compromised and alternatives must be deployed fast (Reverse)
+16. TODO: Assign the squad to monitor all incoming transmissions closely
+17. every distant outpost remains vigilant despite ongoing system disruptions (cap)
+18. A HIGH PRIORITY SIGNAL FROM COMMAND SHOULD BE VERIFIED (low)
+19. The team responded swiftly and ensured stability across all active services with meaningful maintenance applied across board.
+20. today is easter friday (cap) AND TOMORROW IS SATURDAY! (low)

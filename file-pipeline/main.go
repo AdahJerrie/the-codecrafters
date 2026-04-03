@@ -1,56 +1,49 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"log"
 	"os"
-	"strings"
 )
 
-func processText(text string) string {
-	if strings.Contains(text, "(cap)") {
-		word := Cap(text)
-		return word
-	}
-	if strings.Contains(text, "(low)") {
-		word := Tolower(text)
-		return word
-	}
-	if strings.Contains(text, "TODO:") {
-		word := Todo(text)
-		return word
-	}
-	if text == " " || text == "-" {
-		word, err := Dashes(text)
-		if err != true {
-			panic(err)
-		}
-		return word
-	}
+func Number(len string) int {
+	data, _ := os.Open("input.txt")
 
-	return text
+	scanner := bufio.NewScanner(data)
+	count := 0
+	for scanner.Scan() {
+		count++
+	}
+	return count
 }
 
-func processbylines(text string) string {
-	lines := strings.Split(text, "\n")
-
-	for i, line := range lines {
-		lines[i] = processText(line)
+func main() {
+	if len(os.Args) < 3 || len(os.Args) > 3 {
+		log.Fatal("Invalid numnber of Arguments")
+		//return
 	}
-	return strings.Join(lines, "\n")
-}
 
-func main() { //1. determine no. of aarguments
-	//2. access our file through args
-	if len(os.Args) != 3 {
-		fmt.Println("Incomplete arguments")
+	if os.Args[1] != "input.txt" {
+		log.Fatal("Invalid argument name")
+	}
+
+	if os.Args[1] == os.Args[2] {
+		log.Fatal("Input and output cannot be the same file.")
 	}
 
 	inputfile := os.Args[1]
 	outputfile := os.Args[2]
 
+	//os.stat is used to check if a file exists, if it doesnt os.!IsNotExist handles err if file doesnt exist
+
+	if _, err := os.Stat(inputfile); os.IsNotExist(err) {
+		log.Fatalf("%v does not exist", inputfile)
+	}
+
 	data, err := os.ReadFile(inputfile)
 	if err != nil {
-		fmt.Println("Error reading file")
+		log.Fatal(err)
 		return
 	}
 
@@ -58,9 +51,16 @@ func main() { //1. determine no. of aarguments
 
 	err = os.WriteFile(outputfile, []byte(result), 0644)
 	if err != nil {
-		fmt.Println("Error writing file", err)
+		log.Fatal(err)
 		return
 	}
-	fmt.Println("Printed successfully")
-
+	fmt.Println("Summary block of printed file:")
+	fmt.Printf("Number of lines read: %v\n", Number("input.txt"))
+	fmt.Printf("Number of lines written: %v\n", Number("input.txt"))
+	fmt.Println("THE RULES APPLIED ARE:")
+	fmt.Println("1. Conversion to CAPS")
+	fmt.Println("2. Conversion to lowercase")
+	fmt.Println("3. Replace TODO with ACTION")
+	fmt.Println("4. The string is reversed, for strings ending with (Reverse)")
+	fmt.Println("5. Lines longer than 80 words return TRUNCATED")
 }

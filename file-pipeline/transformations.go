@@ -59,15 +59,26 @@ func Todo(text string) string {
 	return strings.Join(fields, " ")
 }
 
-func Dashes(text string) (string, bool) {
-	clean := strings.TrimSpace(text)
-	if clean == " " || strings.Trim(clean, "-") == "" {
-		return "", true
+func Linelenght(text string) string {
+	for i := 0; i < len(text); i++ {
+		if len(text) > 80 {
+			//text = "TRUNCATED"
+		}
 	}
-	return text, false
+	texts := strings.Fields(text)
+	return texts[0] + " " + "TRUNCATED"
 }
 
-// func main() {
-// 	word := " "
-// 	fmt.Println(Dashes(word))
-// }
+func Reverse(text string) string {
+	runes := strings.Fields(text)
+	for i := 0; i < len(runes); i++ {
+		if runes[len(runes)-1] == "(Reverse)" {
+			runes[len(runes)-1] = ""
+			for i, j := 1, len(runes)-1; i < j; i, j = i+1, j-1 {
+				//if runes[len(runes)-1] == "(Reverse)" {
+				runes[i], runes[j] = runes[j], runes[i]
+			}
+		}
+	}
+	return strings.Join(runes, " ")
+}
