@@ -22,10 +22,17 @@ func Cap(text string) string {
 	for i, val := range fields {
 		last := len(fields) - 1
 		if fields[last] == "(cap)" {
+			for _, con := range connectors {
+				if val == con {
+
+				}
+
+			}
 			myFlag := slices.Contains(connectors, val)
 			if myFlag == false {
 				fields[i] = strings.ToUpper(string(fields[i][0])) + strings.ToLower(fields[i][1:])
 			}
+
 		}
 
 	}

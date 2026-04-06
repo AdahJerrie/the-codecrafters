@@ -35,7 +35,6 @@ func processText(text string) string {
 
 func processbylines(text string) string {
 	lines := strings.Split(text, "\n")
-	//Number = len(lines)
 
 	for i, line := range lines {
 		lines[i] = processText(line)
